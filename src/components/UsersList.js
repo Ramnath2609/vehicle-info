@@ -13,7 +13,7 @@ export function UsersList({ data }) {
         const user = data[item.index]
         return (
         <div key={item.key} style={item.style} onClick={() => onUserClick(user)}>
-            <span>{user.userName} - {user.age}</span>
+            <span className="clickable">{user.userName} - {user.age}</span>
         </div>
         )
     }, [data, onUserClick]);

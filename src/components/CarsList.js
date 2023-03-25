@@ -21,7 +21,7 @@ export function CarsTable({ columns, data }) {
     {
       columns,
       data,
-      initialState: { pageIndex: 2 },
+      initialState: { pageIndex: 0 },
     },
     usePagination
   )
@@ -90,7 +90,7 @@ export function CarsList({ data }) {
             Header: 'Vehicle Model',
             id: 'vehicleName',
             accessor: (d) => d.model,
-            Cell: ({ value }) => <span onClick={() => setSelectedCar(value)} >{value}</span>
+            Cell: ({ value }) => <span className='clickable' onClick={() => setSelectedCar(value)} >{value}</span>
         },
         {
             Header: 'Vehicle Maker',

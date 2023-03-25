@@ -8,7 +8,7 @@ export function CarUsers({ data, onDismiss, model }) {
     const selectedUsers = data.filter((i) => i.vehicle.model === model)
 
     return (
-        <div id="overlay" onB>
+        <div className="overlay">
             <div className="sidebar" ref={ref}>
                 <h3>Users using - {model}</h3>
                 <>

@@ -22,3 +22,12 @@ export function createUser() {
         }
     }
 }
+
+export async function loadInitialData() {
+    const items = []
+    for(let i = 0; i < 10000; i++) {
+        const user = createUser();
+        items.push(user);
+    }
+    return items;
+}

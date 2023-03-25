@@ -5,7 +5,7 @@ export function UserDetails({ user: { userName, phone, occupation, email, age, a
     const ref = useRef(null);
     useOutsideClick(ref, onDismiss);
     return (
-        <div id="overlay" onB>
+        <div className="overlay">
             <div className="sidebar" ref={ref}>
                 <h3>User Details :-</h3>
                 <p>{userName}</p>
