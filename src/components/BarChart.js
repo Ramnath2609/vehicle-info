@@ -30,7 +30,7 @@ import {
       },
       title: {
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: 'Vehicles belonging to particular country',
       },
     },
   };
@@ -56,7 +56,7 @@ export function BarChart({ data }) {
                         data: Object.values(items),
                         borderColor: 'rgb(255, 99, 132)',
                         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                        borderWidth: 5
+                        borderWidth: 2,
                     }]
                 }} 
             />

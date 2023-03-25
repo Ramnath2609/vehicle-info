@@ -1,5 +1,6 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { useTable, usePagination } from 'react-table'
+import { CarUsers } from './CarUsers'
 
 export function CarsTable({ columns, data }) {
   const {
@@ -75,7 +76,7 @@ export function CarsTable({ columns, data }) {
 }
 
 export function CarsList({ data }) {
-
+    const [selectedCar, setSelectedCar] = useState(undefined)
     const items = data.reduce((acc, curr) => {
         const isPresent = acc.find((i) => i.model === curr.vehicle.model);
         if(!isPresent) {
@@ -88,7 +89,8 @@ export function CarsList({ data }) {
         {
             Header: 'Vehicle Model',
             id: 'vehicleName',
-            accessor: (d) => d.model
+            accessor: (d) => d.model,
+            Cell: ({ value }) => <span onClick={() => setSelectedCar(value)} >{value}</span>
         },
         {
             Header: 'Vehicle Maker',
@@ -97,11 +99,14 @@ export function CarsList({ data }) {
         }
     ]), []);
 
-
+    const onDismiss = useCallback(() => {
+        setSelectedCar(undefined);
+    }, []);
     return (
-        <div>
+        <div className='cars'>
             <h3>Cars List</h3>
             <CarsTable data={items} columns={columns} />
+            {selectedCar && <CarUsers data={data} model={selectedCar} onDismiss={onDismiss} />}
         </div>
     )
 }

@@ -13,25 +13,26 @@ function App() {
   useEffect(() => {
     setIsLoading(true)
     const items = []
-    for(let i = 0; i < 1000; i++) {
+    for(let i = 0; i < 10000; i++) {
       const user = createUser();
       items.push(user);
     }
     setData(items);
     setIsLoading(false);
   }, []);
+
   console.log(data);
   return (
     <div className="App">
       <header className="App-header">
         <h3>Vehicle Info</h3>
+      </header>
         <BarChart data={data} />
         <div className="userList">
           <UsersList data={data} />
           <PieChart data={data} />
         </div>
         <CarsList data={data} />
-      </header>
     </div>
   );
 }
