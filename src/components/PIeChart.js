@@ -1,5 +1,5 @@
 import { Pie } from "react-chartjs-2";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 import {
     Chart as ChartJS,
